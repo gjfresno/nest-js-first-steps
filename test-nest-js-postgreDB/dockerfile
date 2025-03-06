@@ -1,0 +1,23 @@
+# 1️⃣ Usamos la imagen oficial de Node.js
+FROM node:alpine3.21
+
+# 2️⃣ Establecemos el directorio de trabajo en el contenedor
+WORKDIR /app
+
+# 3️⃣ Copiamos los archivos package.json y package-lock.json
+COPY package*.json ./
+
+# 4️⃣ Instalamos las dependencias
+RUN npm install
+
+# 5️⃣ Copiamos el resto del código de la aplicación
+COPY . .
+
+# 6️⃣ Generamos el cliente de Prisma
+RUN npx prisma generate
+
+# 7️⃣ Exponemos el puerto de NestJS (normalmente 3000)
+EXPOSE 4000
+
+# 8️⃣ Comando de inicio
+CMD ["npm", "run", "start:prod"]
