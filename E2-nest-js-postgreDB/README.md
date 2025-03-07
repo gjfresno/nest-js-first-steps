@@ -18,6 +18,12 @@ Antes de comenzar, asegúrate de tener instalado:
   npm install -g @nestjs/cli
   ```
 
+Para este ejemplo se va a necesitar una DB PostgreSQL
+
+  ```sh
+  docker run --name nestjs-postgres -e POSTGRES_DB=mydb_nest_test -e POSTGRES_USER=miusuario -e POSTGRES_PASSWORD=password -p 5490:5432 -d postgres
+  ```
+
 ### 2️⃣ Clonar el repositorio y entrar al proyecto
 
 ```sh
